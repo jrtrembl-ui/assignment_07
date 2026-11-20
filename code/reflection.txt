@@ -1,8 +1,24 @@
-Write your reflection here.
+Completing this assignment taught me how much web scraping depends on matching
+code to the structure of each HTML page. Lakeshore required class and ID-aware CSS
+selectors, including a sibling selector and inner_text, while Hilltop worked better
+with read_html and melt to reshape wide size columns. Canal Street required a
+headless browser to select a shop, wait for JavaScript, paginate with "Show more",
+crawl item links, and read attributes and item-page content. These techniques made
+it clear that scraping is not just downloading HTML; it is controlling and observing
+a page until the rendered data is available.
 
-See reflection.md for what makes a good reflection — be specific, use the
-terminology from this assignment (HTML element, CSS selector, class and id
-selectors, sibling selector, inner_text, attribute, headless browser, waiting for
-JavaScript, crawling, pagination, read_html, melt, fuzzy matching, normalization,
-threshold, human in the loop, merge indicator, gap analysis), and make it
-actionable.
+The hardest part was fuzzy matching. Normalization, token_sort_ratio, and the
+AUTO_MATCH and REVIEW thresholds could find likely names, but scores could be
+misleading. Matcha Latte looked close to Mocha Latte, while PSL needed an
+owner-level decision. I learned to keep a human in the loop: the matcher proposes,
+the owner decides, and record_decision preserves the answer for future runs. This
+also showed me why owner decisions must win over automatic matches.
+
+For gap analysis and price comparison, merge, indicator, pivot, and groupby made
+it possible to compare structured data without row-by-row programming. I understand
+how an outer merge separates "only us," "only them," and "both," and how min,
+mean, max, and price_position classify market position. I want more practice reading
+browser diagnostics and choosing selectors that remain tied to useful HTML structure.
+My next step is to practice one small Playwright crawl and one pandas merge exercise
+from an unfamiliar dataset, then explain each column and wait condition in plain
+language before coding.
